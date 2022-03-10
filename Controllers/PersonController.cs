@@ -33,7 +33,7 @@ public class PersonController: ControllerBase
     [HttpPost]
     public async Task<IActionResult> Post(Person newPerson)
     {
-        await _personsService.CreateAsync(newPerson);
+        await _personsService.CreateAsync(new Person() { Name = newPerson.Name, BirthDate = newPerson.BirthDate, SurName = newPerson.SurName});
 
         return CreatedAtAction(nameof(Get), new { id = newPerson.Id }, newPerson);
     }
