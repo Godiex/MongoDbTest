@@ -5,6 +5,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.Configure<DatabaseSettings>( builder.Configuration.GetSection("Database") );
 builder.Services.AddSingleton<PersonService>();    
+builder.Services.AddSingleton<UserService>(); 
+builder.Services.AddSingleton<LoanService>(); 
+builder.Services.AddSingleton<BookService>(); 
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

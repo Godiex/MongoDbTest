@@ -9,9 +9,15 @@ namespace MongoDbApi.Controllers;
 public class PersonController: ControllerBase
 {
     private readonly PersonService _personsService;
-    
-    public PersonController(PersonService personsService) =>
+    private readonly UserService _userService;
+
+    public PersonController(PersonService personsService, UserService userService)
+    {
         _personsService = personsService;
+        _userService = userService;
+    }
+
+    
     
     [HttpGet]
     public async Task<List<Person>> Get() =>
